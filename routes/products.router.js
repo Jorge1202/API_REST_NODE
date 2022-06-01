@@ -25,16 +25,22 @@ router.get('/filter', (req, res) => {
 //http://localhost:3000/products/12
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  res.json({
-    id,
-    idname: 2,
-    name: 'camisa',
-  });
+  if (id == '999') {
+    res.status(404).json({
+      message: 'Not found',
+    });
+  } else {
+    res.status(200).json({
+      id,
+      idname: 2,
+      name: 'camisa',
+    });
+  }
 });
 
 router.post('/', (req, res) => {
   const body = req.body;
-  res.json({
+  res.status(201).json({
     message: 'Created',
     data: body,
   });
@@ -43,7 +49,7 @@ router.post('/', (req, res) => {
 router.patch('/:id', (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  res.json({
+  res.status(200).json({
     message: 'patch',
     data: body,
     id,
@@ -53,7 +59,7 @@ router.patch('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  res.json({
+  res.status(200).json({
     message: 'put',
     data: body,
     id,
@@ -62,7 +68,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  res.json(id);
+  res.status(200).json(id);
 });
 
 module.exports = router;
