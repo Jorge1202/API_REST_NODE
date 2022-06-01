@@ -3,6 +3,14 @@ function logErrors(err, req, res, next) {
   next(err); // on next nos indica que ejecute el siguiente middleware
 }
 
+function boomErrorHangle(err, req, res, next) {
+  if (err.isBoom) {
+    const { output } = err;
+    res.status(output.statusCode).json(output.payload);
+  }
+  next(err);
+}
+
 function errorHangle(err, req, res, next) {
   res.status(500).json({
     message: err.message,
@@ -13,4 +21,5 @@ function errorHangle(err, req, res, next) {
 module.exports = {
   logErrors,
   errorHangle,
+  boomErrorHangle,
 };

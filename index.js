@@ -3,7 +3,11 @@ const express = require('express');
 
 //traemos todas los modulos
 const routerApi = require('./routes');
-const { logErrors, errorHangle } = require('./middlewares/error.handler');
+const {
+  logErrors,
+  errorHangle,
+  boomErrorHangle,
+} = require('./middlewares/error.handler');
 
 // creamos una aplicación
 const app = express();
@@ -24,6 +28,7 @@ routerApi(app);
 
 //el orden de la llamada del error es importante por la llamada funcion next()
 app.use(logErrors);
+app.use(boomErrorHangle);
 app.use(errorHangle);
 
 //le decimos a la aplicación en que puesto escuchar
