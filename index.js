@@ -13,9 +13,34 @@ const port = 3000;
 app.get('/', (req, res) => {
   res.send('hola mi server en express');
 });
-app.get('/user', (req, res) => {
+app.get('/users', (req, res) => {
+  res.json([
+    {
+      id: 1,
+      name: 'Jorge',
+    },
+    {
+      id: 2,
+      name: 'Jorge',
+    },
+  ]);
+});
+
+app.get('/users/:id', (req, res) => {
+  const { id } = req.params;
   res.json({
-    id: 1,
+    id,
+    idname: 2,
+    name: 'Jorge',
+  });
+});
+
+app.get('/categoria/:category/productos/:idProduct', (req, res) => {
+  const { category, idProduct } = req.params;
+  res.json({
+    category,
+    idProduct,
+    idname: 2,
     name: 'Jorge',
   });
 });
