@@ -21,3 +21,6 @@ function routerApi(app) {
 }
 
 module.exports = routerApi;
+
+//https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+//https://http.cat
