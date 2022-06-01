@@ -18,7 +18,7 @@ app.use(express.json());
 let whitelist = ['http://localhost:3001', 'http://sandbox.com'];
 let options = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
+    if (whitelist.includes(origin) || !origin) {
       callback(null, true);
     } else {
       callback(new Error('No permitido'));
@@ -34,7 +34,10 @@ const port = 3000;
 // tiene un callback que va a ejecutar la respuesta que enviemos al cliente.
 //el callback siempre tiene dos parámetros "req" y "res".
 app.get('/', (req, res) => {
-  res.send('hola mi server en express');
+  res.send('Api de prueba');
+});
+app.get('/api', (req, res) => {
+  res.send('Api REST');
 });
 
 //rutas de la API
