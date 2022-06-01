@@ -1,5 +1,5 @@
 const faker = require('faker');
-const boom = require('@hapi/boom');
+const boom = require('@hapi/boom'); // https://hapi.dev/module/boom/api/?v=9.1.4
 
 class Products {
   constructor() {
