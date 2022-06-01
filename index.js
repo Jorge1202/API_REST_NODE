@@ -6,6 +6,7 @@ const routerApi = require('./routes');
 
 // creamos una aplicación
 const app = express();
+app.use(express.json());
 
 //le decimos el puerto en que queremos que corra la aplicación
 const port = 3000;
@@ -23,5 +24,5 @@ routerApi(app);
 //le decimos a la aplicación en que puesto escuchar
 // además creamos un callback que nos avisará cuando esté corriendo
 app.listen(port, () => {
-  console.log('http://localhost:' + port);
+  console.log(`http://localhost:${port}/api`);
 });
