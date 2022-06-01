@@ -1,1 +1,2 @@
 npm i nodemon eslint eslint-config-prettier eslint-plugin-prettier pritter -D
+npm i faker@5.5.3 -S
