@@ -2,6 +2,7 @@
 const express = require('express');
 
 //traemos todas los modulos
+const cors = require('cors');
 const routerApi = require('./routes');
 const {
   logErrors,
@@ -12,6 +13,19 @@ const {
 // creamos una aplicación
 const app = express();
 app.use(express.json());
+
+//cors
+let whitelist = ['http://localhost:3001', 'http://sandbox.com'];
+let options = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido'));
+    }
+  },
+};
+app.use(cors(options));
 
 //le decimos el puerto en que queremos que corra la aplicación
 const port = 3000;

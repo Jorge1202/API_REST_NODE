@@ -1,4 +1,5 @@
 npm i nodemon eslint eslint-config-prettier eslint-plugin-prettier pritter -D
 npm i faker@5.5.3 -S
 npm i @hapi/boom
-npm docs joi
+npm i joi
+npm i cors
