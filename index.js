@@ -13,6 +13,12 @@ const port = 3000;
 app.get('/', (req, res) => {
   res.send('hola mi server en express');
 });
+app.get('/user', (req, res) => {
+  res.json({
+    id: 1,
+    name: 'Jorge',
+  });
+});
 
 //le decimos a la aplicación en que puesto escuchar
 // además creamos un callback que nos avisará cuando esté corriendo
