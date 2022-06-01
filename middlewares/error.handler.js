@@ -1,3 +1,6 @@
+//https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+//https://http.cat
+
 function logErrors(err, req, res, next) {
   console.error(err);
   next(err); // on next nos indica que ejecute el siguiente middleware
